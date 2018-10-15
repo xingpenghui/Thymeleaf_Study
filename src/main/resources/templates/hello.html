@@ -1,0 +1,17 @@
+<!DOCTYPE html >
+<!--1、引用命名空间-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf引擎</title>
+</head>
+<body>
+<h1>这就是模板引擎应用</h1>
+
+<h2 th:text="我是Thyemeleaf"></h2>
+<!--2、使用对应的属性   th:text-->
+<!--3、取值             ${属性名称}}-->
+<!--获取后端数据  从四大域中-->
+<h2 th:text="'后端数据,'+${msg}"></h2>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>深入应用Thymeleaf</title>
+</head>
+<body>
+<div>
+    <h1>常用基本语法</h1>
+    <label th:text="${lname}"></label>
+    <input th:value="${name}" placeholder="请输入重命名的用户名"><br/>
+    <a th:href="@{/hellodata.do(data=${id})}">请点击获取内容</a><br/>
+    <p th:object="${session.stu}">
+        <span th:text="*{sname}"></span>
+    </p>
+</div>
+<div>
+    <h1>分支</h1>
+    <h1 style="color: green" th:if="${id} gt 1" th:text="'正常：'+${name}"></h1>
+    <h1 style="color: red" th:unless="${id} gt 1" th:text="'相反：'+${name}"></h1>
+
+</div>
+<div>
+    <h1>循环</h1>
+    <ul>
+        <li th:each="s : ${stus}" th:text="${s.sname}"></li>
+    </ul>
+    <table width="400px" align="center" border="1">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  th:each="s : ${stus}">
+            <td align="center" th:text="${s.sid}"></td>
+            <td align="center" th:text="${s.sname}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+<div>
+    <h1>内置工具类</h1>
+    <h1 th:text="${#dates.createNow()}">当前时间：</h1>
+    <h3 th:text="${#strings.length('abc')}"></h3>
+</div>
+</body>
+</html>
